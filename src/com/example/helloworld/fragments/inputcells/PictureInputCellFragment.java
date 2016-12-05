@@ -86,16 +86,25 @@ public class PictureInputCellFragment extends BaseInputCellFragment {
 	
 	protected void pickFromAlbum() {
 		// TODO Auto-generated method stub
-		
+		Intent itnt = new Intent(Intent.ACTION_GET_CONTENT);
+		itnt.setType("image/*");
+		startActivityForResult(itnt, REQUESTCODE_ALBUM);
 	}
 	
 	@Override
 	public void onActivityResult(int requestCode, int resultCode, Intent data) {
 		// TODO Auto-generated method stub
-		
+		if(resultCode == Activity.RESULT_CANCELED) return;
 		if(requestCode == REQUESTCODE_CAMERA){
 			Bitmap bmp = (Bitmap)data.getExtras().get("data");
 			imageView.setImageBitmap(bmp);
+		}else if(requestCode == REQUESTCODE_ALBUM){
+			try{
+				Bitmap bmp = MediaStore.Images.Media.getBitmap(getActivity().getContentResolver(),data.getData());
+				imageView.setImageBitmap(bmp);
+			}catch(Exception e){
+				e.printStackTrace();
+			}
 		}
 	}
 
