@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.View.OnClickListener;
 
 public class LoginActivity extends Activity {
 	SimpleTextInputCellFragment fragAccout,fragPassword;
@@ -29,6 +30,15 @@ public class LoginActivity extends Activity {
 			public void onClick(View v) {
 
 				goLogin();	
+			}
+		});
+		
+		findViewById(R.id.btn_forgot_password).setOnClickListener(new OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				goRecoverPassword();
 			}
 		});
 
@@ -56,6 +66,11 @@ public class LoginActivity extends Activity {
 
 	void goRegister(){
 		Intent itnt = new Intent(this,RegisterActivity.class);
+		startActivity(itnt);
+	}
+	
+	void goRecoverPassword(){
+		Intent itnt = new Intent(this,PasswordRecoverActivity.class);
 		startActivity(itnt);
 	}
 }
