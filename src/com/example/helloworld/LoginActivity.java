@@ -60,9 +60,10 @@ public class LoginActivity extends Activity {
 	}
 
 	void goLogin() {
+		Intent itnt = new Intent(this,HelloWorldActivity.class);
+		startActivity(itnt);
 
-
-	}
+	}	
 
 	void goRegister(){
 		Intent itnt = new Intent(this,RegisterActivity.class);
