@@ -25,15 +25,17 @@
         </activity>
         <activity
             android:name="com.example.helloworld.LoginActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/AppTheme" >
         </activity>
         <activity
             android:name="com.example.helloworld.RegisterActivity"
-            android:theme="@android:style/Theme.NoTitleBar" >
+            android:theme="@style/AppTheme" >
         </activity>
-        <activity android:name="com.example.helloworld.HelloWorldActivity" >
+        <activity android:name="com.example.helloworld.HelloWorldActivity" 
+            android:theme="@style/AppTheme">
         </activity>
-        <activity android:name="com.example.helloworld.PasswordRecoverActivity" >
+        <activity android:name="com.example.helloworld.PasswordRecoverActivity" 
+            android:theme="@style/AppTheme">
         </activity>
     </application>
 

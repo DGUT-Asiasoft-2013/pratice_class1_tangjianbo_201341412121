@@ -10,24 +10,24 @@ import android.os.Bundle;
 public class PasswordRecoverActivity extends Activity {
 	PasswordRecoverStep1Fragment step1=new PasswordRecoverStep1Fragment();
 	PasswordRecoverStep2Fragment step2=new PasswordRecoverStep2Fragment();
-	
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		// TODO Auto-generated method stub
 		super.onCreate(savedInstanceState);
-		
+
 		setContentView(R.layout.activity_password_recover);
 		step1.setOnGoNextListener(new OnGoNextListener() {
-			
+
 			@Override
 			public void onGoNext() {
-				// TODO Auto-generated method stub
+
 				goStep2();
 			}
 		});
-		getFragmentManager().beginTransaction().replace(R.id.container, step1);
+		getFragmentManager().beginTransaction().replace(R.id.container, step1).commit();
 	}
-	
+
 	void goStep2(){
 		getFragmentManager()
 		.beginTransaction()
