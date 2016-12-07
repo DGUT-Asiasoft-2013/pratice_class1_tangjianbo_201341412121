@@ -37,6 +37,13 @@
         <activity android:name="com.example.helloworld.PasswordRecoverActivity" 
             android:theme="@style/AppTheme">
         </activity>
+        
+        <activity android:name="com.example.helloworld.FeedContentActivity" 
+            android:theme="@style/AppTheme">
+        </activity>
+        <activity android:name="com.example.helloworld.NewMessageActivity" 
+            android:theme="@style/AppTheme">
+        </activity>
     </application>
 
 </manifest>

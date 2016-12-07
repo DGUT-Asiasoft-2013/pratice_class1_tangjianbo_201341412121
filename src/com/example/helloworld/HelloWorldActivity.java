@@ -9,7 +9,10 @@ import com.example.helloworld.fragments.widget.MainTabbarFragment.OnTabSelectedL
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.view.View.OnClickListener;
 
 public class HelloWorldActivity extends Activity {
 	FeedListFragment contentFeedList =new FeedListFragment();
@@ -32,6 +35,15 @@ public class HelloWorldActivity extends Activity {
 			public void onTabSelected(int index) {
 				changeContentFragment(index);
 				
+			}
+		});
+		
+		findViewById(R.id.btn_new).setOnClickListener(new View.OnClickListener() {
+			
+			@Override
+			public void onClick(View v) {
+				// TODO Auto-generated method stub
+				goNewMessage();
 			}
 		});
 	}
@@ -61,6 +73,12 @@ public class HelloWorldActivity extends Activity {
 		.beginTransaction()
 		.replace(R.id.content, newFrag)
 		.commit();
+	}
+	
+	void goNewMessage(){
+		Intent itnt=new Intent(this,NewMessageActivity.class);
+		startActivity(itnt);
+		
 	}
 
 }
