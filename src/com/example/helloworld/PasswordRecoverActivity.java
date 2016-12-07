@@ -31,6 +31,11 @@ public class PasswordRecoverActivity extends Activity {
 	void goStep2(){
 		getFragmentManager()
 		.beginTransaction()
+		.setCustomAnimations(
+				R.animator.slide_in_right, 
+				R.animator.slide_out_left, 
+				R.animator.slide_in_left, 
+				R.animator.slide_out_right)
 		.replace(R.id.container, step2)
 		.addToBackStack(null)
 		.commit();
