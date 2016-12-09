@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.view.View;
 import okhttp3.Call;
 import okhttp3.Callback;
+import okhttp3.MediaType;
 import okhttp3.MultipartBody;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -27,6 +28,7 @@ public class RegisterActivity extends Activity {
 	SimpleTextInputCellFragment fragInputCellEmailAddress;
 	SimpleTextInputCellFragment fragInputCellPassword;
 	SimpleTextInputCellFragment fragInputCellPasswordRepeat;
+	PictureInputCellFragment fragInputAvatar;
 
 
 	@Override
@@ -40,6 +42,7 @@ public class RegisterActivity extends Activity {
 		fragInputCellEmailAddress=(SimpleTextInputCellFragment)getFragmentManager().findFragmentById(R.id.input_email);
 		fragInputCellPassword = (SimpleTextInputCellFragment) getFragmentManager().findFragmentById(R.id.input_password);
 		fragInputCellPasswordRepeat = (SimpleTextInputCellFragment) getFragmentManager().findFragmentById(R.id.input_password_repeat);
+		fragInputAvatar=(PictureInputCellFragment)getFragmentManager().findFragmentById(R.id.input_picture);
 
 
 	}
@@ -91,6 +94,8 @@ public class RegisterActivity extends Activity {
 			
 			return;
 		}
+		
+		password=MD5.getMD5(password);
 
 		String account =fragInputCellAccount.getText();
 		String name =fragInputCellName.getText();
@@ -103,6 +108,14 @@ public class RegisterActivity extends Activity {
 				.addFormDataPart("name", name)
 				.addFormDataPart("email", email)
 				.addFormDataPart("passwordHash", password);
+		
+		if(fragInputAvatar.getPngData()!=null){
+			requestBodyBuilder.addFormDataPart(
+					"avatar", 
+					"avatar",
+					RequestBody.create(MediaType.parse("image/png"),
+					fragInputAvatar.getPngData()));
+		}
 		
 		Request request=new Request.Builder()
 				.url("http://172.27.0.26:8080/membercenter/api/register")
