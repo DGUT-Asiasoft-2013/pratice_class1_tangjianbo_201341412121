@@ -17,8 +17,9 @@ public class NewMessageActivity extends Activity {
 			
 			@Override
 			public void onClick(View v) {
-				// TODO Auto-generated method stub
+				
 				finish();
+				overridePendingTransition(R.anim.none,R.anim.slide_out_bottom);
 			}
 		});
 	}

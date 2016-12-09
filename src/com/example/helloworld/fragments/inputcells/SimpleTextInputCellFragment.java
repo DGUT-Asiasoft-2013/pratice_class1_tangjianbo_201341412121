@@ -42,4 +42,8 @@ public class SimpleTextInputCellFragment extends Fragment {
 		}
 	}
 
+	public String getText() {
+		return edit.getText().toString();
+	}
+
 }

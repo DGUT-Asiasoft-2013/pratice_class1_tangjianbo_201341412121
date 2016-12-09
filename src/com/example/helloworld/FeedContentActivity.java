@@ -1,6 +1,6 @@
 package com.example.helloworld;
 
-import com.example.helloworld.fragments.pages.FeedContentFragment;
+
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.TextView;
 
 public class FeedContentActivity extends Activity {
-	FeedContentFragment feedContentText;
+	
 	 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -19,10 +19,10 @@ public class FeedContentActivity extends Activity {
 		
 		
 		setContentView(R.layout.activity_feed_content);
-		feedContentText=(FeedContentFragment)getFragmentManager().findFragmentById(R.id.feed_text);
 		
+		TextView textView = (TextView) findViewById(R.id.text);
 		
-		
+		textView.setText(text);
 		
 	}
 	

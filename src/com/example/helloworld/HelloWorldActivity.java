@@ -78,7 +78,7 @@ public class HelloWorldActivity extends Activity {
 	void goNewMessage(){
 		Intent itnt=new Intent(this,NewMessageActivity.class);
 		startActivity(itnt);
-		
+		overridePendingTransition(R.anim.slide_in_bottom, R.anim.none);
 	}
 
 }

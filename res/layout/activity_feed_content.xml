@@ -4,12 +4,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent" >
 
-    <fragment
-        android:id="@+id/feed_content"
-        android:layout_width="match_parent"
-        android:layout_height="60dp"
-        android:layout_gravity="center"
-        class="com.example.helloworld.fragments.pages.FeedContentFragment"
-        tools:layout="@layout/fragment_page_feed_content" />
+    <TextView 
+         android:id="@+id/text"
+         android:layout_width="wrap_content"
+         android:layout_height="wrap_content"
+         android:layout_gravity="center"
+         android:padding="2dp"
+         android:text="FEED TEXT"
+       />
 
 </FrameLayout>
