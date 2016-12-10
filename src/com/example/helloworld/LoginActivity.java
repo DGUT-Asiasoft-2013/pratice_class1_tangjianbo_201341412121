@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import java.io.IOException;
 
+import com.example.helloworld.api.Server;
 import com.example.helloworld.entity.User;
 import com.example.helloworld.fragments.inputcells.SimpleTextInputCellFragment;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -85,7 +86,7 @@ public class LoginActivity extends Activity {
 
 
 
-		OkHttpClient client=new OkHttpClient();
+		OkHttpClient client=Server.getSharedClient();
 
 		MultipartBody.Builder requestBodyBuilder = new MultipartBody.Builder()
 				.setType(MultipartBody.FORM)
@@ -96,8 +97,7 @@ public class LoginActivity extends Activity {
 
 
 
-		Request request=new Request.Builder()
-				.url("http://172.27.0.26:8080/membercenter/api/login")
+		Request request=Server.requestBuilderWithApi("login")
 				.method("post", null)
 				.post(requestBodyBuilder.build())
 				.build();
