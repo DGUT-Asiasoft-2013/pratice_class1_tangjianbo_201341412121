@@ -167,7 +167,7 @@ public class RegisterActivity extends Activity {
 	
 	void onResponse(Call arg0, String responseBody){
 		new AlertDialog.Builder(this)
-		.setTitle("注册成功")
+		.setTitle("登录成功")
 		.setMessage(responseBody)
 		.setPositiveButton("好", new OnClickListener() {
 			
@@ -183,7 +183,7 @@ public class RegisterActivity extends Activity {
 	
 	public void onFailure(Call arg0, Exception arg1) {
 		new AlertDialog.Builder(this)
-		.setTitle("请求失败")
+		.setTitle("登录失败")
 		.setMessage(arg1.getLocalizedMessage())
 		.setNegativeButton("好", null)
 		.show();
