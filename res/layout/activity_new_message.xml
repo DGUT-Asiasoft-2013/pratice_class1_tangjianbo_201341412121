@@ -1,17 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical" >
-    
-     <EditText
-        android:id="@+id/edit_new_message"
+
+    <fragment
+        android:id="@+id/input_title"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:hint="请输入内容" />
+        android:layout_height="wrap_content"
+        class="com.example.helloworld.fragments.inputcells.SimpleTextInputCellFragment"
+        tools:layout="@layout/fragment_inputcell_simpletext" />
+
+    <TextView
+        android:id="@+id/textTitle"
+         android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="正文" />
+
+    <EditText
+        android:id="@+id/input_text"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:ems="10"
+        android:inputType="textMultiLine"
+        android:text="请输入正文" 
+        android:textSize="12sp"
+        android:padding="8dp"
+        android:background="@android:color/white">
+
+        <requestFocus />
+    </EditText>
 
     <Button
         android:id="@+id/btn_new_message_submit"
+       
         android:layout_width="match_parent"
         android:layout_height="50dp"
         android:text="提交" />
