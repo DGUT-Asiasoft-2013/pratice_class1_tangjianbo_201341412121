@@ -54,7 +54,7 @@ public class NewMessageActivity extends Activity {
 	
 	void onSubmit(){
 		String title=fragTitle.getText();
-		String text=fragText.toString();
+		String text=fragText.getText().toString();
 		OkHttpClient client=Server.getSharedClient();
 		MultipartBody Body = new MultipartBody.Builder()
 				.addFormDataPart("title", title)

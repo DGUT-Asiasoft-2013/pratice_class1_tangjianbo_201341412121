@@ -56,6 +56,7 @@ public class HelloWorldActivity extends Activity {
 		tabbar.setSelectedItem(0);
 	}
 	
+	
 	void changeContentFragment(int index){
 		Fragment newFrag=null;
 		switch(index){

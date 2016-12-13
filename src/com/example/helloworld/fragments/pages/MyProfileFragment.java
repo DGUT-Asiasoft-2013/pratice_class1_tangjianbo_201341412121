@@ -27,7 +27,7 @@ public class MyProfileFragment extends Fragment {
 	View view;
 	TextView textView;
 	ProgressBar progress;
-//	AvatarView avatar;
+	AvatarView avatar;
 
 	@Override
 	public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -35,7 +35,7 @@ public class MyProfileFragment extends Fragment {
 			view=inflater.inflate(R.layout.fragment_page_my_profile, null);
 			textView =(TextView)view.findViewById(R.id.text);
 			progress= (ProgressBar)view.findViewById(R.id.progress);
-//			avatar = (AvatarView) view.findViewById(R.id.avatar);
+			avatar = (AvatarView) view.findViewById(R.id.avatar);
 		}
 		return view;
 	}
@@ -95,7 +95,7 @@ public class MyProfileFragment extends Fragment {
 	
 	protected void onResponse(Call arg0, User user) {
 		progress.setVisibility(View.GONE);
-//		avatar.load(user);
+		avatar.load(user);
 		textView.setVisibility(View.VISIBLE);
 		textView.setTextColor(Color.BLACK);
 		textView.setText("Hello,"+user.getName());

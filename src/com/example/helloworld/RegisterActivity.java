@@ -2,6 +2,7 @@ package com.example.helloworld;
 
 import java.io.IOException;
 
+import com.example.helloworld.api.Server;
 import com.example.helloworld.fragments.inputcells.PictureInputCellFragment;
 import com.example.helloworld.fragments.inputcells.SimpleTextInputCellFragment;
 
@@ -101,7 +102,7 @@ public class RegisterActivity extends Activity {
 		String name =fragInputCellName.getText();
 		String email= fragInputCellEmailAddress.getText();
 		
-		OkHttpClient client=new OkHttpClient();
+		OkHttpClient client = Server.getSharedClient();
 		MultipartBody.Builder requestBodyBuilder =new MultipartBody.Builder()
 				.setType(MultipartBody.FORM)
 				.addFormDataPart("account", account)
@@ -117,8 +118,7 @@ public class RegisterActivity extends Activity {
 					fragInputAvatar.getPngData()));
 		}
 		
-		Request request=new Request.Builder()
-				.url("http://172.27.0.26:8080/membercenter/api/register")
+		Request request=Server.requestBuilderWithApi("register")
 				.method("post", null)
 				.post(requestBodyBuilder.build())
 				.build();
